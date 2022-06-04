@@ -1,0 +1,1288 @@
+Q1.square star pattern
+*****
+*****
+*****
+*****
+*****
+
+Sol.
+  static void print(int n) { //no of rows
+
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q2. Hollow square star pattern
+
+*****
+*   *
+*   *
+*   *
+*****
+
+SOL.
+ static void print(int n) { //passing the no of rows
+
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(i==0 || i==n-1 || j==0 || j==n-1)
+                System.out.print("*");
+                else
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q3 print hollow square with diagonal
+
+*****
+** **
+* * *
+** **
+*****
+SOL.
+ static void print(int n) { //passing the no of rows
+
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(i==0 || i==n-1 || j==0 || j==n-1 || j==i||(i+j==n-1))
+                System.out.print("*");
+                else
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q4 Rhombus star pattern
+    ***** 
+   *****
+  *****
+ *****
+*****
+Sol.
+ static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <=n; i++) {
+            for (int j = 1; j <=2*n; j++) {
+                if (j>=n+1-i&&j<=2*n-i)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q5.
+ 
+    *****
+   *   *
+  *   *
+ *   *
+*****
+SOL
+static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+
+            for (int j = 1; j <= 2 * n - 1; j++) {
+                if ((i == 1 && (j >= n && j <= 2 * n - 1)) || (i == n && (j >= 1 && j <= n))
+                        || (j == n + 1 - i || j == 2 * n - i)) {
+                    System.out.print("*");
+
+                }
+
+                else {
+                    System.out.print(" ");
+
+                }
+
+            }
+            System.out.println();
+        }
+
+    }
+
+Q6. Mirrored rhombus
+*****
+ *****
+  *****
+   *****
+    *****
+
+ static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= 2 * n; j++) {
+                if (j >= i && j <= n-1 + i)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q7.
+*
+**
+***
+****
+*****
+SOL
+ static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <=n; i++) {
+            for (int j = 1; j <=n; j++) {
+                if (j<=i)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+
+Q8.
+*
+**
+* *
+*  *
+*****
+
+SOL.
+static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j == 1 || j == i ||i==n)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q9
+
+    *
+   **
+  ***
+ ****
+*****
+SOL.
+ static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j>=n+1-i)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q 10.
+
+    *
+   **
+  * *
+ *  *
+*****
+
+SOL.
+ static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j == n || j == n + 1 - i || i == n)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q 11.
+
+*****
+****
+***
+**
+*
+SOL.
+static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j<=n+1-i)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q12.
+*****
+*  *
+* *
+**
+*
+
+SOL.
+ static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j==n+1-i || j==1 || i==1)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q13.
+*****
+ ****
+  ***
+   **
+    *
+SOL.
+static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j>=i)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q14.
+
+*****
+ *  *
+  * *
+   **
+    *
+SOL.
+ static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j==i||j==n||i==1)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q15.
+
+    *
+   ***
+  *****
+ *******
+*********
+
+SOL. 
+ static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <=2*n-1; j++) {
+                if (j>=n+1-i && j<=n-1+i)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+
+Q16.
+    *
+   * *
+  *   *
+ *     *
+*********
+
+Hollow Pyramid Star Pattern
+
+Sol.
+static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <=2*n-1; j++) {
+                if (j==n+1-i || j==n-1+i || i==n)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q17.
+
+*********
+ *******
+  *****
+   ***
+    *
+Sol.
+ static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= 2 * n - 1; j++) {
+                if (j >= i && j <= 2 * n - i)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q18.
+
+*********
+ *     *
+  *   *
+   * *
+    *
+
+Hollow Inverted Pyramid Star Pattern
+Sol.
+static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= 2 * n - 1; j++) {
+                if (j == i || j == 2 * n - i || i==1)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q19.
+
+*
+**
+***
+****
+*****
+****
+***
+**
+*
+
+Half Diamond Star Pattern
+Sol.
+ static void print(int n) { // passing the no of rows
+        int k = 0;
+        for (int i = 1; i <= n; i++) {
+            if (n % 2 == 0) { // when we have even no of rows
+                if (i <= n / 2) {
+                    k++;
+                } else if(i>n/2+1){
+                    k--;}   
+
+            } else { //when we have odd no of rows
+                if (i <= (n + 1) / 2)
+                    k++;
+                else
+                    k--;
+            }
+            for (int j = 1; j <= (n + 1) / 2; j++) {
+                if (j <= k)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q20. 
+
+    *
+   **
+  ***
+ ****
+*****
+ ****
+  ***
+   **
+    *
+Mirrored Half Diamond Star Pattern
+Sol.
+static void print(int n) { // passing the no of rows
+        int k = 0;
+        int rows, col;
+        rows = n;
+        col = (rows + 1) / 2;
+        for (int i = 1; i <= rows; i++) {
+            if (rows % 2 == 0) { // when we have even no of rows
+                if (i <= rows / 2) {
+                    k++;
+                } else if (i > rows / 2 + 1) {
+                    k--;
+                }
+
+            } else { // when we have odd no of rows
+                if (i <= (rows + 1) / 2)
+                    k++;
+                else
+                    k--;
+            }
+            for (int j = 1; j <= col; j++) {
+                if (j >= (col + 1) - k)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q21.
+ 
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+
+Diamond Star Pattern
+
+Sol.
+ static void print(int n) { // passing the no of rows
+        int k = 0;
+        int m = (n + 1) / 2;
+        for (int i = 1; i <= n; i++) {
+            if (n % 2 == 0) { // when we have even no of rows
+                if (i <= m) {
+                    k++;
+                } else if (i > m + 1) {
+                    k--;
+                }
+
+            } else { // when we have odd no of rows
+                if (i <= m)
+                    k++;
+                else
+                    k--;
+            }
+            for (int j = 1; j <= n; j++) {
+                if (j >= m + 1 - k && j <= m - 1 + k)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+Q22. 
+
+**********
+****  ****
+***    ***
+**      **
+*        *
+*        *
+**      **
+***    ***
+****  ****
+**********
+
+Hollow Diamond Star Pattern
+
+Sol.
+static void print(int n) { // passing the no of rows
+        int k = 0;
+        int m = (n + 1) / 2;
+        for (int i = 1; i <= n; i++) {
+            if (n % 2 == 0) { // when we have even no of rows
+                if (i <= m) {
+                    k++;
+                } else if (i > m + 1) {
+                    k--;
+                }
+
+            } else { // when we have odd no of rows
+                if (i <= m)
+                    k++;
+                else
+                    k--;
+            }
+            for (int j = 1; j <= n; j++) {
+                if (j <= m + 1 - k || j >= m - 1 + k)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q23.
+
+*****
+  ****
+    ***
+      **
+        *
+      **
+    ***
+  ****
+*****
+
+Right Arrow Star Pattern
+Sol.
+static void print(int n) { // passing the no of rows
+// for n==9;
+        int k = -1;
+        int m = 0;
+        m = (n + 1) / 2;
+
+        for (int i = 1; i <= m - 1; i++) {
+            k++;
+            for (int j = 1; j <= n; j++) {
+                if (j >= i + k && j <= m + k)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+
+        }
+        k = -1;
+        for (int i = 1; i <= m; i++) {
+            k++;
+            for (int j = 1; j <= n; j++) {
+                if (j >= n - 2 * k && j <= n - k)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+
+        }
+
+    }
+
+
+Q24. 
+
+    *****
+   ****
+  ***
+ **
+*
+ **
+  ***
+   ****
+    *****
+
+Left Arrow Star Pattern
+Sol.
+
+static void print(int n) { // passing the no of rows
+        // for n=9;
+        int k = -1;
+        int m = 0;
+        m = (n + 1) / 2;
+
+        for (int i = 1; i <= m - 1; i++) {
+            k++;
+            for (int j = 1; j <= n; j++) {
+                if (j >= m - k && j <= n - 2 * k)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+
+        }
+        k = -1;
+        for (int i = 1; i <= m; i++) {
+            k++;
+            for (int j = 1; j <= n; j++) {
+                if (j >= i && j <= 2 * i - 1)
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+
+        }
+
+    }
+
+Q25. 
+
+    +
+    +
+    +
+    +
++++++++++
+    +
+    +
+    +
+    +
+
+Plus Star Pattern
+
+Sol.
+static void print(int n) { // passing the no of rows
+        int m = 0;
+        if (n % 2 == 0) {
+            m = n / 2;
+        } else {
+            m = (n + 1) / 2;
+        }
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j == m || i == m) {
+                    System.out.print("+");
+                }
+
+                else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+Q26. 
+
+*       *
+ *     *
+  *   *
+   * *
+    *
+   * *
+  *   *
+ *     *
+*       *
+
+X Star Pattern
+
+Sol.
+static void print(int n) { // passing the no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (j == i || j == n + 1 - i) {
+                    System.out.print("+");
+                }
+
+                else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q27.
+
+ ***
+*   *
+*   *
+*   *
+ ***
+*   *
+*   *
+*   *
+ ***
+
+Eight Star Pattern
+
+Sol.
+static void print(int n) { // passing the no of rows
+        int m = 0;
+        if (n % 2 == 0)
+            m = n / 2; // in case of even no of rows
+        else if (n % 2 != 0)
+            m = (n + 1) / 2; // in case of odd no of rows
+
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if ((i == 1 && (j == 1 || j==m))|| (i==m && (j==1 || j==m)) || (i==n && (j==1 || j==m)))
+                    System.out.print(" ");
+                else if(i==1 || i==m || i==n || j==1 || j==m)
+                    System.out.print("*");
+                else 
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q28.
+ 
+  *****     *****  
+ *******   ******* 
+********* *********
+******************* 
+ *****************  
+  ***************   
+   *************    
+    ***********     
+     *********      
+      *******       
+       *****        
+        ***
+         *
+Heart Star Pattern        
+
+
+Sol.
+static void print(int n) { // passing the no of rows
+        // for n=5;
+        for (int i = 1; i < n; i++) {
+
+            for (int j = 1; j <= n * 2 - 1; j++) {
+                if (i >= n / 2 && (j >= n - i && j <= n + i))
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            for (int j = 0; j <= n * 2 - 1; j++) {
+                if (i >= n / 2 && (j >= n - i && j <= n + i))
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+        for (int i = 1; i <= n * 2; i++) {
+            for (int j = 1; j <= n * 4; j++) {
+                if (j >= i && j <= n * 4 - i) {
+                    System.out.print("*");
+                }
+
+                else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+
+
+Q29.
+    *    
+   * *
+  * * *
+ * * * *
+* * * * *
+Sol.
+static void print(int n) { // passing the no of rows
+        // for n=5;
+        boolean k = false;
+        for (int i = 1; i <= n; i++) {
+            k = true;
+            for (int j = 1; j <= 2 * n - 1; j++) {
+                if (j >= n + 1 - i && j <= n - 1 + i && k) {
+                    System.out.print("*");
+                    k = false;
+                } else {
+                    System.out.print(" ");
+                    k = true;
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+
+Q30.
+*******
+*     *
+* *** *
+* * * *
+* *** *
+*     *
+*******
+
+Sol.
+
+        for (int i = 1; i <= 7; i++) {
+
+            for (int j = 1; j <= 7; j++) {
+                if (i == 1 || j == 1 || i == 7 || j == 7 || (i == 3 && (j >= 3 && j <= 5))
+                        || (i == 4 && (j == 3 || j == 5)) || (i == 5 && (j >= 3 && j <= 5))) {
+                    System.out.print("*");
+
+                } else {
+                    System.out.print(" ");
+
+                }
+            }
+            System.out.println();
+        }
+
+    
+
+
+Q31.
+    A1   
+   AB12
+  ABC123
+ ABCD1234
+Sol.
+static void print(int n) { // passing the no of rows
+        // for n=5;
+
+        for (int i = 1; i <= n; i++) {
+            char k = 'A';
+            int x = 1;
+
+            for (int j = 1; j <= n * 2; j++) {
+                if (j >= n + 1 - i && j <= n + i) {
+                    if (j < n + 1) {
+                        System.out.print(k);
+                        k++;
+                    } else {
+                        System.out.print(x);
+                        x++;
+                    }
+
+                } else {
+                    System.out.print(" ");
+
+                }
+            }
+            System.out.println();
+        }
+
+    }
+}
+
+
+
+Q32.
+A    
+BA
+CBA
+DCBA
+EDCBA
+Sol.
+ static void print(int n) { // passing the no of rows
+        // for n=5;
+        int k;
+
+        for (int i = 1; i <= n; i++) {
+            k = 64 + i;
+            for (int j = 1; j <= n; j++) {
+                if (j <= i) {
+                    System.out.print((char) k);
+                    k--;
+
+                } else {
+                    System.out.print(" ");
+
+                }
+
+            }
+            System.out.println();
+        }
+
+    }
+
+Q33.
+1        
+3*2
+4*5*6
+10*9*8*7
+11*12*13*14*15
+
+Sol.
+ static void print(int n) { // passing the no of rows
+        // for n=5;
+        int k = 0;
+
+        for (int i = 1; i <= n; i++) {
+            if (i % 2 != 0) {
+
+                k = k + 1;
+            } else {
+                k--;
+                k = k + i;
+            }
+            int p = k;
+            for (int j = 1; j <= 2 * n - 1; j++) {
+                if (j <= 2 * i - 1) {
+                    if (j % 2 == 0) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print(p);
+                        if (i % 2 != 0) {
+                            p++;
+                            k++;
+
+                        } else {
+                            p--;
+                        }
+                    }
+
+                } else {
+                    System.out.print(" ");
+
+                }
+
+            }
+            System.out.println();
+        }
+
+    }
+
+Q34.
+         A
+       C B
+     F E D
+  J  I H G
+ O N M L K
+
+Sol.
+static void print(int n) { // passing the no of rows
+        // for n=5;
+        int k = 64;
+
+        for (int i = 1; i <= n; i++) {
+            k = k + i;
+            int p = k;
+            for (int j = 1; j <= n; j++) {
+                if (j >= n + 1 - i) {
+                    System.out.print((char) p);
+                    p--;
+
+                }
+
+                else {
+                    System.out.print(" ");
+
+                }
+
+            }
+            System.out.println();
+        }
+
+    }
+
+Q35.
+      1   
+    A B
+  1 2 3
+A B C D
+
+Sol.
+ static void print(int n) { // passing the no of rows
+
+        boolean m = false;
+
+        for (int i = 1; i <= n; i++) {
+            int k = 1;
+            char c = 'A';
+            m = true;
+            for (int j = 1; j <= 2 * n - 1; j++) {
+                if (j >= n + 1 - i && j <= n - 1 + i && m) {
+                    if (i % 2 == 0) {
+                        System.out.print(c);
+                        c++;
+                    } else {
+                        System.out.print(k);
+                        k++;
+                    }
+                    m = false;
+
+                }
+
+                else {
+                    System.out.print(" ");
+                    m = true;
+
+                }
+
+            }
+            System.out.println();
+        }
+
+    }
+
+Q36.
+0    
+01
+024
+0369
+0481216
+
+Sol.
+static void print(int n) { // passing the no of rows
+
+        int k, m;
+        for (int i = 1; i <= n; i++) {
+            k = 0;
+            m = i - 1;
+            for (int j = 1; j <= n; j++) {
+                if (j <= i) {
+                    System.out.print(k);
+                    k = k + m;
+
+                }
+
+                else {
+                    System.out.print(" ");
+
+                }
+
+            }
+            System.out.println();
+        }
+
+    }
+
+Q37.
+   1    
+  121
+ 12321
+1234321
+Sol.
+System.out.println("enter the no of rows");
+        int n = sc.nextInt();
+        for (int i = 1; i <= n; i++) {
+            int k = 1;
+            for (int j = 1; j <= 2 * n - 1; j++) {
+                if (j >= n + 1 - i && j <= n - 1 + i) {
+                    System.out.print(k);
+                    if (j < n)
+                        k++;
+                    else
+                        k--;
+                } else
+                    System.out.print(" ");
+            }
+            System.out.println(" ");
+        }
+
+
+Q38.
+ABCDCBA
+ABC CBA
+AB   BA
+A     A
+Sol.
+System.out.println("enter the no of rows");
+        int n = sc.nextInt();
+        for (int i = 1; i <= n; i++) {
+            char c = 'A';
+            for (int j = 1; j <= 2 * n - 1; j++)
+            {
+                if (j <= n + 1 - i || j >= n - 1 + i) {
+                    System.out.print(c);
+                    if (j < n)
+                        c++;
+                    else
+                        c--;
+                } else
+                    System.out.print(" ");
+                if (j == n)
+                    c--;
+            }
+            System.out.println(" ");
+        }
+
+Q39.
+6543210 
+543210
+43210
+3210
+210
+10
+0
+Sol.
+System.out.println("enter the no of rows");
+        int n = sc.nextInt();
+        for (int i = 1; i <= n; i++) {
+
+            int x = n - i;
+            for (int j = 1; j <= n; j++)
+
+            {
+                if (j <= n + 1 - i) {
+                    System.out.print(x);
+                    x--;
+                } else
+                    System.out.print(" ");
+
+            }
+            System.out.println(" ");
+        }
+
+
+
+
+Q40.
+   A    
+  ABA
+ ABCBA
+ABCDCBA
+Sol.
+ System.out.println("enter the no of rows");
+        int n = sc.nextInt();
+        for (int i = 1; i <= n; i++) {
+            char c = 'A';
+            for (int j = 1; j <= 2 * n - 1; j++)
+
+            {
+                if (j >= n + 1 - i && j <= n - 1 + i) {
+                    System.out.print(c);
+                    if (j < n)
+                        c++;
+                    else
+                        c--;
+
+                } else
+                    System.out.print(" ");
+
+            }
+            System.out.println(" ");
+        }
+
+Q41.
+   1    
+  212
+ 32123
+4321234
+
+Sol.
+ System.out.println("enter the no of rows");
+        int n = sc.nextInt();
+        int x = 1;
+        for (int i = 1; i <= n; i++) {
+            x = i;
+            for (int j = 1; j <= 2 * n - 1; j++)
+
+            {
+                if (j >= n + 1 - i && j <= n - 1 + i) {
+                    System.out.print(x);
+                    if (j < n)
+                        x--;
+                    else
+                        x++;
+
+                } else
+                    System.out.print(" ");
+
+            }
+            System.out.println(" ");
+        }
+
+Q42.
+ABCDEFGHI 
+ABCD FGHI
+ABC   GHI
+AB     HI
+A       I
+Sol.
+ System.out.println("enter the no of rows");
+        int n = sc.nextInt();
+        for (int i = 1; i <= n; i++) {
+            char c = 'A';
+            for (int j = 1; j <= 2 * n - 1; j++)
+
+            {
+                if (j <= n + 1 - i || j >= n - 1 + i) {
+                    System.out.print(c);
+
+                }
+
+                else {
+                    System.out.print(" ");
+
+                }
+                c++;
+
+            }
+
+            System.out.println(" ");
+        }
+
+
