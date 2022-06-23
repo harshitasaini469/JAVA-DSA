@@ -1,0 +1,1455 @@
+//Array programming exercises
+
+1.	program to delete an element from an array at specified position.
+Sol.
+import java.util.*;
+
+publiclass deleteAt {
+    publistativoid main(String[] args) {
+        Scanner s= new Scanner(System.in);
+        int index = 0;
+
+        System.out.println("enter the size of the array");
+        int size = sc.nextInt();
+        int a[] = new int[size];
+        System.out.println("enter the elements in the array");
+        for (int i = 0; i < size; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        System.out.println("enter the element to delete ");
+        int x = sc.nextInt();
+
+        for (int i = 0; i < size; i++) { // finding the index of the element to be deleted
+            if (a[i] == x) {
+                index = i;
+                break;
+            }
+        }
+        for (int i = index; i < size - 1; i++) {
+            a[i] = a[i + 1];
+        }
+        size--;
+        for (int i = 0; i < size; i++) {
+            System.out.print(a[i] + " ");
+        }
+
+        sc.close();
+        
+    }
+}
+
+
+2.	Write a program to count frequency of each element in an array.
+Sol.
+import java.util.*;
+
+public class freqCount {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int count = 1;
+
+        System.out.println("enter the size of the array");
+        int size = sc.nextInt();
+
+        int a[] = new int[size];
+        boolean visited[] = new boolean[size];
+
+        System.out.println("enter the elements in the array");
+        for (int i = 0; i < size; i++) {
+            a[i] = sc.nextInt();
+            visited[i] = false;
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            if (visited[i] == true)
+                continue;
+
+            count = 1;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] == a[i]) {
+                    count++;
+                    visited[j] = true;
+                }
+            }
+            System.out.println("the frequency of " + a[i] + " is " + count);
+        }
+
+        sc.close();
+
+    }
+}
+
+
+3.	Write a program to print all unique elements in the array.
+Sol.
+import java.util.*;
+
+public class printUnique {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int count = 1;
+
+        System.out.println("enter the size of the array");
+        int size = sc.nextInt();
+
+        int a[] = new int[size];
+        boolean visited[] = new boolean[size];
+
+        System.out.println("enter the elements in the array");
+        for (int i = 0; i < size; i++) {
+            a[i] = sc.nextInt();
+            visited[i] = false;
+        }
+        System.out.println("the original array is " + Arrays.toString(a));
+
+        System.out.println("the unique elements in the array are");
+        for (int i = 0; i < a.length; i++) {
+            if (visited[i] == true)
+                continue;
+
+            count = 1;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] == a[i]) {
+                    count++;
+                    visited[j] = true;
+                }
+            }
+            if (count == 1)
+                System.out.println(a[i]);
+        }
+
+        sc.close();
+
+    }
+}
+
+
+4.	Write a program to count total number of duplicate elements in an array.
+Sol.
+import java.util.*;
+
+public class countDuplicates {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int count = 0;
+        int sum = 0;
+
+        System.out.println("enter the size of the array");
+        int size = sc.nextInt();
+
+        int a[] = new int[size];
+        boolean visited[] = new boolean[size];
+
+        System.out.println("enter the elements in the array");
+        for (int i = 0; i < size; i++) {
+            a[i] = sc.nextInt();
+            visited[i] = false;
+        }
+        System.out.println("the original array is " + Arrays.toString(a));
+
+        for (int i = 0; i < a.length; i++) {
+            if (visited[i] == true)
+                continue;
+
+            count = 0;
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[j] == a[i]) {
+                    count++;
+                    visited[j] = true;
+                }
+            }
+            sum = sum + count;
+        }
+        System.out.println("total duplicate elements in the array are " + sum);
+        sc.close();
+
+    }
+}
+
+
+5.	Write a program to delete all duplicate elements from an array.
+Sol. 
+import java.util.*;
+
+public class deleteDuplicates {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // int a[] = { 10, 20, 10, 1, 100, 10, 2, 1, 5, 10 };
+        int a[]={1,2,2,3,4,5,5,6,7,8};
+
+        System.out.println("the original array is " + Arrays.toString(a));
+
+        System.out.println("after remving the duplicates");
+
+        a = removeDuplicates(a);
+
+        System.out.println(Arrays.toString(a));
+
+        sc.close();
+
+    }
+
+    static int[] removeDuplicates(int a[]) {
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] == a[j]) {
+                   a= removeElement(a, j);
+                }
+            }
+        }
+        return a;
+    }
+
+    static int[] removeElement(int a[],int x) {
+        int result[] = new int[a.length - 1];
+
+        for (int i = 0; i < result.length; i++) {
+            if (i < x) {
+                result[i] = a[i];
+            } else {
+                result[i] = a[i + 1];
+            }
+        }
+
+        return result;
+    }
+}
+
+
+6.	Write a program to merge two array to third array.
+Sol. 
+import java.util.Arrays;
+
+public class mergeArrays {
+    public static void main(String[] args) {
+        int a[] = { 1, 4, 6, 9, 15 };
+        int b[] = { 2, 5, 8, 10 };
+
+        int result[] = new int[a.length + b.length];
+        result = merge(a, b, result);
+        System.out.println(Arrays.toString(result));
+
+    }
+
+    static int[] merge(int a[], int b[], int[] c) {
+        int i = 0; // iterator for c
+        int j = 0; // iterator for a
+        int k = 0; // iterator for b
+
+    
+            while (j < a.length && k < b.length) {
+                if (a[j] < b[k]) {
+                    c[i] = a[j];
+                    i++;
+                    j++;
+                } else {
+                    c[i] = b[k];
+                    i++;
+                    k++;
+                }
+            }
+        
+        while (j < a.length) {
+            c[i] = a[j];
+            j++;
+            i++;
+
+        }
+        while (k < b.length) {
+            c[i] = b[k];
+            k++;
+            i++;
+        }
+
+        return c;
+    }
+}
+
+
+7.	Write a program to find reverse of an array.
+Sol.
+
+import java.util.*;
+
+public class reverse {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int index = 0;
+
+        System.out.println("enter the size of the array");
+        int size = sc.nextInt();
+        int a[] = new int[size];
+        System.out.println("enter the elements in the array");
+        for (int i = 0; i < size; i++) {
+            a[i] = sc.nextInt();
+        }
+System.out.println("the reverse of the array is") ;   
+for (int i = size-1; i>=0; i--) {
+    System.out.print(a[i]+" ");
+}  
+
+        sc.close();
+        
+    }
+}
+
+
+8.	Write a program to put even and odd elements of array in two separate array.
+Sol. 
+public class EvenOdd {
+    public static void main(String[] args) {
+        int a[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+      
+        int even[] = new int[a.length];
+        int odd[] = new int[a.length];
+
+        int evenIndex = 0;
+        int oddIndex = 0;
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 == 0) {
+                even[evenIndex] = a[i];
+                evenIndex++;
+            } else {
+                odd[oddIndex] = a[i];
+                oddIndex++;
+            }
+        }
+
+        System.out.println("even array is ");
+
+        for (int i = 0; i < evenIndex; i++) {
+            System.out.print(even[i] + " ");
+        }
+
+        System.out.println();
+
+        System.out.println("odd array is ");
+
+        for (int i = 0; i < oddIndex; i++) {
+            System.out.print(odd[i] + " ");
+        }
+
+    }
+}
+
+
+9.	Write a program to search an element in an array.
+Sol.
+
+import java.util.*;
+
+public class search {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int index = 0;
+        boolean isPresent = false;
+
+        System.out.println("enter the size of the array");
+        int size = sc.nextInt();
+        int a[] = new int[size];
+        System.out.println("enter the elements in the array");
+        for (int i = 0; i < size; i++) {
+            a[i] = sc.nextInt();
+        }
+        System.out.println("enter the element to find in the array");
+        int ele = sc.nextInt();
+        for (int i = 0; i < size; i++) {
+            if (ele == a[i]) {
+                index = i;
+                isPresent = true;
+                System.out.println("element is present at" + i + " th Position in the array");
+
+            } else
+                continue;
+        }
+
+        if (isPresent == false) {
+            System.out.println("element not present in the array");
+        }
+
+        sc.close();
+
+    }
+}
+
+
+10.	Write a program to sort array elements in ascending or descending order.
+Sol.
+import java.util.Arrays;
+
+public class sortArray {
+    public static void main(String[] args) {
+        int a[] = { 20, 2, 10, 6, 52, 31, 0, 45, 79, 40 };
+
+        System.out.println("the sorted array in ascending order is ");
+
+        a = sortAscending(a);
+        System.out.println(Arrays.toString(a));
+
+        System.out.println("the sorted array in descending order is ");
+
+        a = sortDescending(a);
+        System.out.println(Arrays.toString(a));
+
+    }
+
+    static int[] sortAscending(int a[]) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] > a[j]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        return a;
+    }
+
+    static int[] sortDescending(int a[]) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] < a[j]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        return a;
+    }
+}
+
+
+11.	Write a program to sort even and odd elements of array separately.
+Sol.
+import java.util.*;
+
+public class SortEvenOdd {
+    public static void main(String[] args) {
+        int a[] = { 0, 5, 1, 2, 3, 4, 6, 12, 10, 9 };
+
+        // variables to count total even and odd elements
+        int evenIndex = 0; // for even array
+        int oddIndex = 0; // for odd array
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 == 0) {
+                evenIndex++;
+            } else {
+                oddIndex++;
+            }
+        }
+        int even[] = new int[evenIndex];
+        int odd[] = new int[oddIndex];
+
+        // iterators for the arrays
+        int j = 0; // for even array
+        int k = 0; // for odd array
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] % 2 == 0) {
+                even[j] = a[i];
+                j++;
+            } else {
+                odd[k] = a[i];
+                k++;
+            }
+        }
+        sortAscending(even, 0, evenIndex);
+        sortAscending(odd, 0, oddIndex);
+
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(even));
+        System.out.println(Arrays.toString(odd));
+
+        a = merge(even, odd); // merging both sorted arrays to the final array
+
+        System.out.println(Arrays.toString(a));
+
+    }
+
+    static int[] merge(int even[], int odd[]) {
+        int merge[] = new int[even.length + odd.length];
+
+        int i = 0; // iterator for merge
+        int j = 0; // iterator for even
+        int k = 0; // iterator for odd
+
+        while (j < even.length) {
+            merge[i] = even[j];
+            i++;
+            j++;
+        }
+
+        while (k < odd.length) {
+            merge[i] = odd[k];
+            i++;
+            k++;
+        }
+
+        return merge;
+    }
+
+    static void sortAscending(int a[], int start, int end) {
+        for (int i = start; i < end; i++) {
+            for (int j = i + 1; j < a.length; j++) {
+                if (a[i] > a[j]) {
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+
+    }
+}
+
+
+12.	Write a program to left rotate an array.
+Sol.
+import java.util.*;
+
+public class leftRotate {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        // int a[]={1,2,3,4,5,6,7,8,9,10};
+        System.out.println("enter the size of the array");
+        int size = sc.nextInt();
+
+        int a[] = new int[size];
+
+        System.out.println("enter the elements in the array");
+        for (int i = 0; i < size; i++) {
+            a[i] = sc.nextInt();
+        }
+        System.out.println("the original arrays is " + Arrays.toString(a));
+
+        System.out.println("enter no of times to rotate the array");
+        int n = sc.nextInt();
+        n = n % size; // if n>=size;
+
+        for (int i = 0; i < n; i++) {
+            a = rotate(a);
+        }
+
+        System.out.println(Arrays.toString(a));
+
+        sc.close();
+    }
+
+    static int[] rotate(int a[]) {
+        int x = a[0];
+
+        for (int i = 0; i < a.length - 1; i++) {
+            a[i] = a[i + 1];
+        }
+        a[a.length - 1] = x;
+
+        return a;
+    }
+}
+
+
+13.	Write a program to right rotate an array.
+Sol.
+
+import java.util.*;
+
+public class rightRotate {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of the array");
+        int size = sc.nextInt();
+        int a[] = new int[size];
+
+        System.out.println("enter the elements in the array");
+        for (int i = 0; i < size; i++) {
+            a[i] = sc.nextInt();
+        }
+        System.out.println("the original arrays is " + Arrays.toString(a));
+
+        System.out.println("enter no of times to rotate the array");
+        int n = sc.nextInt();
+        n = n % a.length; // if n>=size
+
+        for (int i = 0; i < n; i++) {
+            a = rotate(a);
+        }
+
+        System.out.println(Arrays.toString(a));
+
+        sc.close();
+    }
+
+    static int[] rotate(int a[]) {
+        int x = a[a.length - 1];
+
+        for (int i = a.length - 1; i > 0; i--) {
+            a[i] = a[i - 1];
+        }
+
+        a[0] = x;
+        return a;
+    }
+}
+
+
+//matrix programming exercises
+14.	Write a program to add two matrices.
+Sol.
+import java.util.*;
+
+public class matrixAdd {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+        
+        int a[][] = new int[n][n];
+        int b[][] = new int[n][n];
+        int sum[][] = new int[n][n];
+
+        System.out.println("enter the elements in first matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("enter the elements in second matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        sum = sum(a, b, n);
+
+        System.out.println("the resultant matrix is ");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(sum[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+
+    }
+
+    static int[][] sum(int a[][], int b[][], int n) {
+        int c[][] = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                c[i][j] = a[i][j] + b[i][j];
+            }
+        }
+
+        return c;
+    }
+}
+
+
+15.	Write a program to subtract two matrices.
+Sol.
+import java.util.*;
+
+public class subMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+        
+        int a[][] = new int[n][n];
+        int b[][] = new int[n][n];
+        int diff[][] = new int[n][n];
+
+        System.out.println("enter the elements in first matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("enter the elements in second matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        diff = subtract(a, b, n);
+
+        System.out.println("the resultant matrix is ");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(diff[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+
+    }
+
+    static int[][] subtract(int a[][], int b[][], int n) {
+        int c[][] = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                c[i][j] = a[i][j] - b[i][j];
+            }
+        }
+
+        return c;
+    }
+
+}
+
+
+16.	Write a program to perform Scalar matrix multiplication.
+Sol.
+import java.util.*;
+
+public class scalarMactrixMultiply {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+        int a[][] = new int[n][n];
+        int s[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("enter the multiplier");
+        int A = sc.nextInt();
+        s = scalar(a, A, n);
+
+        System.out.println("the resultant matrix is ");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(s[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+
+    }
+
+    static int[][] scalar(int a[][], int A, int n) {
+        int c[][] = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                c[i][j] = A * a[i][j];
+            }
+        }
+
+        return c;
+    }
+
+}
+
+
+17.	Write a program to multiply two matrices.
+Sol.
+import java.util.*;
+
+public class multiplyMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+        int a[][] = new int[n][n];
+        int b[][] = new int[n][n];
+        int m[][] = new int[n][n];
+
+        System.out.println("enter the elements in first matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("enter the elements in second matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        m = multiply(a, b, n);
+
+        System.out.println("the resultant matrix is ");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(m[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+
+    }
+
+    static int[][] multiply(int a[][], int b[][], int n) {
+        int c[][] = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                c[i][j] = a[i][j] * b[i][j];
+            }
+        }
+
+        return c;
+    }
+}
+
+
+18.	Write a program to check whether two matrices are equal or not.
+Sol.
+import java.util.*;
+
+public class equalityCheckMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+        int a[][] = new int[n][n];
+        int b[][] = new int[n][n];
+
+        System.out.println("enter the elements in first matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println("enter the elements in second matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        if (check(a, b, n)) {
+            System.out.println("matrices are equal");
+        } else {
+            System.out.println("matrices are not equal");
+        }
+
+        sc.close();
+
+    }
+
+    static boolean check(int a[][], int b[][], int n) {
+
+        boolean flag = false;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (a[i][j] == b[i][j]) {
+                    flag = true;
+                    continue;
+                } else {
+                    flag = false;
+                    break;
+                }
+            }
+        }
+
+        return flag;
+    }
+}
+
+
+19.	Write a program to find sum of main diagonal elements of a matrix.
+Sol.
+import java.util.*;
+
+public class mainDiagonalSum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+        int a[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("the sum of main diagonal of the matrix is " + sum(a, n));
+
+        sc.close();
+
+    }
+
+    static int sum(int a[][], int n) {
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+
+            sum += a[i][i];
+
+        }
+
+        return sum;
+    }
+}
+
+
+20.	Write a program to find sum of minor diagonal elements of a matrix.
+Sol.
+import java.util.*;
+
+public class minorDiagonalSum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+        int a[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("the sum of main diagonal of the matrix is " + sum(a, n));
+
+        sc.close();
+
+    }
+
+    static int sum(int a[][], int n) {
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+
+            sum += a[i][n - 1 - i];
+
+        }
+
+        return sum;
+    }
+}
+
+
+21.	Write a program to find sum of each row and column of a matrix.
+Sol.
+import java.util.*;
+
+public class rowColSum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+        int a[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        sum(a, n);
+
+        sc.close();
+
+    }
+
+    static void sum(int a[][], int n) {
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum = 0;
+            for (int j = 0; j < n; j++) {
+                sum += a[i][j];
+            }
+            System.out.println("the sum of row " + (i + 1) + " is " + sum);
+
+        }
+
+        sum = 0;
+        
+        for (int i = 0; i < n; i++) {
+            sum = 0;
+            for (int j = 0; j < n; j++) {
+                sum += a[j][i];
+            }
+            System.out.println("the sum of col " + (i + 1) + " is " + sum);
+
+        }
+
+    }
+}
+
+
+22.	Write a program to interchange diagonals of a matrix.
+Sol.
+import java.util.*;
+
+public class interchangeDiagonals {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+
+        int a[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        change(a, n);
+        System.out.println("after interchanging the diagonals the matrix is ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+
+    }
+
+    static void change(int a[][], int n) {
+
+        for (int i = 0; i < n; i++) {
+
+            int temp = a[i][i];
+            a[i][i] = a[i][n - 1 - i];
+            a[i][n - 1 - i] = temp;
+        }
+    }
+}
+
+
+23.	Write a program to find upper triangular matrix.
+Sol.
+import java.util.*;
+
+public class UTM {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+
+        int a[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        boolean flag = print(a, n);
+        if (flag) {
+            System.out.println("it is an upper triangular matrix");
+        } else {
+            System.out.println("it is not an upper triangular matrix");
+        }
+
+        sc.close();
+
+    }
+
+    static boolean print(int a[][], int n) {
+       
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+                if (j < i && a[i][j]== 0) {
+
+                    return true;
+
+                } else {
+                    break;
+                }
+            }
+        }
+        return false;
+
+    }
+
+}
+
+
+24.	Write a program to find lower triangular matrix.
+Sol.
+import java.util.*;
+
+public class LTM {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+
+        int a[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        boolean flag = print(a, n);
+        if (flag) {
+            System.out.println("it is an lower triangular matrix");
+        } else {
+            System.out.println("it is not an lower triangular matrix");
+        }
+
+        sc.close();
+
+    }
+
+    static boolean print(int a[][], int n) {
+        boolean flag = true;
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+                if (j > i && a[i][j] != 0) {
+                    flag = false;
+                }
+
+            }
+        }
+        System.out.println(flag);
+        return flag;
+
+    }
+}
+
+
+25.	Write a program to find sum of upper triangular matrix.
+Sol.
+import java.util.*;
+
+public class sumUTM {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+
+        int a[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+   System.out.println("the sum of upper triangular matrix is "+ print(a, n)) ;
+      
+
+        sc.close();
+
+    }
+
+    static int print(int a[][], int n) {
+        
+        int sum=0;
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+                if (j > i) {
+                   sum +=a[i][j];
+                } 
+            }
+        }
+        return sum;
+
+    }
+   
+}
+
+
+26.	Write a program to find sum of lower triangular matrix.
+Sol.
+import java.util.*;
+
+public class sumLTM {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+
+        int a[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+   System.out.println("the sum of upper triangular matrix is "+ print(a, n)) ;
+      
+
+        sc.close();
+
+    }
+
+    static int print(int a[][], int n) {
+        
+        int sum=0;
+        for (int i = 0; i < n; i++) {
+
+            for (int j = 0; j < n; j++) {
+                if (j < i) {
+                   sum +=a[i][j];
+                } 
+            }
+        }
+        return sum;
+
+    }
+   
+}
+
+
+27.	Write a program to find transpose of a matrix.
+Sol.
+import java.util.*;
+
+public class Transpose {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+
+        int a[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("before transpose the matrix is ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("after transpose the matrix is ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(a[j][i] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+
+    }
+
+    
+}
+
+
+28.	Write a program to find determinant of a matrix.
+Sol.
+import java.util.*;
+
+public class Determinant {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int A;
+
+        int a[][] = new int[2][2];
+
+        System.out.println("enter the elements in the 2x2 matrix");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("the matrix is ");
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+       
+     A=a[0][0]*a[1][1]-a[0][1]*a[1][0];
+
+System.out.println("the determinant for given 2x2 matrix is "+A);
+        sc.close();
+
+    }
+
+    
+}
+
+
+29.	Write a program to check Identity matrix.
+Sol.
+import java.util.*;
+
+public class identityMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+
+        int a[][] = new int[n][n];
+        boolean flag = true;
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length; j++) {
+                if (i == j && a[i][j] != 1)
+                    flag = false;
+                else if (i != j && a[i][j] != 0)
+                    flag = false;
+            }
+        }
+
+        if (flag == true) {
+            System.out.println("is identity matrix");
+        }
+
+        else {
+            System.out.println("not an identity matrix");
+        }
+        sc.close();
+
+    }
+
+}
+
+
+30.	Write a program to check Sparse matrix.
+Sol.
+import java.util.*;
+
+public class sparseMatrix {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int total = 0;
+        System.out.println("enter the no of rows of the matrices");
+        int row = sc.nextInt();
+        System.out.println("enter the no of columns of the matrices");
+        int col = sc.nextInt();
+
+        int a[][] = new int[row][col];
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("The matrix is ");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j <col; j++) {
+                if (a[i][j] == 0)
+                    total++;
+                System.out.print(a[i][j]);
+            }
+            System.out.println();
+        }
+
+        if (total >= (row * col) / 2) {
+            System.out.println("is sparse matrix");
+        }
+
+        else {
+            System.out.println("not an sparse matrix");
+        }
+        sc.close();
+
+    }
+
+}
+
+
+31.	Write a program to check Symmetrimatrix.
+Sol. import java.util.*;
+
+public class SymmetricMatrix {
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+
+        boolean flag = false;
+
+        System.out.println("enter the size of the matrices");
+        int n = sc.nextInt();
+
+        int a[][] = new int[n][n];
+        int b[][] = new int[n][n];
+
+        System.out.println("enter the elements in matrix");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println("The matrix is ");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(a[i][j]);
+                b[i][j] = a[j][i];
+            }
+            System.out.println();
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (a[i][j] == b[i][j])
+                    flag = true;
+            }
+        }
+        if (flag == true)
+            System.out.println("is symmetric matrix");
+        else
+            System.out.println("not symmetric matrix");
+        sc.close();
+
+    }
+
+}      
