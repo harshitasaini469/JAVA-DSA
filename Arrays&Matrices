@@ -658,6 +658,8 @@ public class matrixAdd {
 }
 
 
+
+
 15.	Write a program to subtract two matrices.
 Sol.
 import java.util.*;
@@ -1453,3 +1455,192 @@ public class SymmetricMatrix {
     }
 
 }      
+
+*****LEET CODE PROGRAMMING EXERCISES********
+//Arrays
+32.Max consecutive ones
+Sol.
+class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        
+        int count=0;
+        int max=0;
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]==1)
+            {
+                count=count+1;
+                max=Math.max(max,count);
+            }
+            else
+            {
+                count=0;
+            }
+           
+        }
+        
+        return max;
+    }
+}
+
+32.Remove Element
+Sol.
+class Solution {
+    public int removeElement(int[] nums, int val) {
+        
+int count=0;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(nums[i]!=val)
+            {
+                nums[count]=nums[i];
+                count++;
+}
+}
+        return count;   
+    } 
+}
+33.Remove Duplicates from Sorted Array
+Sol.
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int k=1;
+        for(int i=1;i<nums.length;i++)
+        {
+            if(nums[i]!=nums[i-1])
+            {
+                nums[k]=nums[i];
+                k++;
+                }
+        }
+        
+        return k;
+        
+    }
+}
+34.Valid Mountain Array
+Sol.
+class Solution {
+    public boolean validMountainArray(int[] arr) {
+        
+        
+   if (arr.length < 3)
+            return false;
+
+        int i = 0; // for calculating peak index
+
+        while (i + 1 < arr.length  && arr[i] < arr[i + 1]  ) {
+            i++;
+
+        }
+
+        if (i == 0 || i+1== arr.length )
+            return false;
+
+        while (i + 1 < arr.length ) {
+            if (arr[i] <= arr[i + 1]) {
+                return false;
+            }
+            i++;
+
+        }
+
+
+        return true;
+
+        
+    }
+}
+
+35.Replace Elements with Greatest Element on Right Side
+Sol.
+class Solution {
+   public static int[] replaceElements(int[] arr) {
+        
+        int n=arr.length;
+        
+        if(n==1){ // if array length is 1
+            arr[n-1]=-1;
+            return arr;
+        }
+        
+        for(int i=0;i<n-1;i++)
+        {
+            int max=getMax(arr,i+1,n);
+            arr[i]=max;
+            
+            
+        }
+        arr[arr.length-1]=-1;
+
+        
+        return arr;
+        
+    }
+    
+    public static int getMax(int a[],int i,int n) // function to get maximum element
+    {
+        int max=a[i]; // taking first element as max
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[j]>max)
+                max=a[j];
+        }
+        
+        return max;
+        
+    }
+
+}
+
+36.Move Zeroes
+Sol.
+class Solution {
+    public void moveZeroes(int[] nums) {
+        
+     int k=0;
+        int n=nums.length;
+
+              for(int i=0;i<n;i++)
+        {
+            if(nums[i]!=0)
+            {
+                nums[k]=nums[i];
+                k++;
+            }
+
+        }
+        for(int i=k;i<n;i++)
+        {
+            nums[i]=0;
+        }
+    }
+}
+
+37. Sort Array By Parity
+Sol.
+class Solution {
+    public int[] sortArrayByParity(int[] nums) {
+         int n=nums.length;
+        int k=0;
+        for(int i=0;i<n;i++)
+        {
+            if(nums[i]%2==0)
+            {
+                swap(nums,i,k);
+                k++;
+
+            }
+        }
+        return nums;
+    }
+    
+    public void swap(int nums[],int i,int k)
+    {
+                int temp=nums[i];
+                nums[i]=nums[k];
+                nums[k]=temp;
+}
+}
+
